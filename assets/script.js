@@ -1,10 +1,21 @@
+var timer
+var landingpage=getElementById("landingPage");
+var questions=document.querySelector("questions");
+var button=getElementById.("button")
+
+
+
+
 var start
-document.getElementById("start");
-start.addeventlistener("click", ) {
+document.getElementById("start").start.addeventlistener("click",
+
+
+) 
+{
   // On click start the game change initial display to none bring 1st question up
   //  start timer
 //
-document.getElementById("landingpage");
+document.getElementById("landingpage").
 #landingpage.setAttribute("style", "display: none");
 }
 var ques1
