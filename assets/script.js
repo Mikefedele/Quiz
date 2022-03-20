@@ -1,83 +1,90 @@
+
 var timer
-var landingpage=getElementById("landingPage");
-var questions=document.querySelector("questions");
-var button=getElementById.("button")
+var landingpage = document.getElementById("landingPage");
 
+var questions = document.querySelector(".questions");
+var button = document.getElementById("button");
+var ques1;
+var ques2;
+var ques3;
+var ques4;
+var ques5;
+var questText = document.getElementById("questText");
 
-
-
-var start
-document.getElementById("start").start.addeventlistener("click",
-
-
-) 
-{
-  // On click start the game change initial display to none bring 1st question up
-  //  start timer
+// On click start the game change initial display to none bring 1st question up
+// & start timer
 //
-document.getElementById("landingpage").
-#landingpage.setAttribute("style", "display: none");
+var index = 0
+button.addEventListener("click", function(){
+  landingpage.setAttribute("style", "display: none");
+
+})
+
+function buildquestion () {
+  questText.textContent = questions[index].name;
+  questions[index].options.forEach(option => {
+    console.log(option)
+    //build button with createlement
+    
+//set attirbute
+//on click
+
+  });
 }
-var ques1
-var ques2
-var ques3
-var ques4
-var ques5
+
+
+
+  //turns off landing
+  
+
 
 //questions   
-var questions = [
-  
 
-  
+
+  //how do i make the ansers clickable
 
   {
-    name: "ques1",
-    division: "AFC North"
-    options: ["Bengals", "Browns", "Ravens", "Broncos"]
-  }
+    name: "AFC North",   
+    options: ["Bengals", "Browns", "Ravens", "Broncos"],
+    answer: "Broncos"
+  },
   
   {
     name: "NFC South",
-    options: ["Buccaneers","Panthers","Jaguars","Falcons"]
-  }
-  
-  
+    options: ["Buccaneers", "Panthers", "Jaguars", "Falcons"],
+    answer: "Jaguars",
+  },
   
   {
     name: "NFC East",
-    options: ["Eagles", "Giants", "Cowboys",]
-    
-
+    options: ["Eagles", "Giants", "Cowboys", "Redskins"],
+    answer: "Redskins"
   }
+ ]
+// var timerEl = document.getElementById("timer");
 
-] 
+// var secondsLeft = 60;
+
+// function setTime() {
+//   // Sets interval in variable
+//   var timerInterval = setInterval(function () {
+//     secondsLeft--;
+//     timeEl.textContent = secondsLeft;
+
+//     if (secondsLeft === 0) {
+//       // Stops execution of action at set interval
+//       clearInterval(timerInterval);
 
 
+//     }
 
-var timerEl = document.getElementById("timer");
-
-var secondsLeft = 60;
-
-function setTime() {
-  // Sets interval in variable
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft;
-
-    if(secondsLeft === 0) {
-      // Stops execution of action at set interval
-      clearInterval(timerInterval);
-      
-      sendMessage();
-    }
-
-  }, 6000);
-}
+//   }, 6000);
+// }
 
 
 
 // need function to start timer on event listen
-//bring up 1st question listen for click on answer[x] 
+//bring up 1st question listen for click on answer[x]
 //if correct go on to next question
 //if wrong -5 secs from timer
 //

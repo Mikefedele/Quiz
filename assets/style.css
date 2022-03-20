@@ -1,8 +1,17 @@
 #landingPage {
-  background-color: blue;
+  background-color: green;
   justify-content: center;
   height: auto;
   text-align: center;
+}
+
+#button {
+  width: 90px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+#startbtn {
+  margin: 1px;
 }
 
 main 
