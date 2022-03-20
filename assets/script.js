@@ -19,13 +19,13 @@ button.addEventListener("click", function(){
   landingpage.setAttribute("style", "display: none");
 
 })
-
+//call this to iterate thru questions on click
 function buildquestion () {
   questText.textContent = questions[index].name;
   questions[index].options.forEach(option => {
     console.log(option)
     //build button with createlement
-    
+
 //set attirbute
 //on click
 
@@ -43,24 +43,42 @@ function buildquestion () {
 
   //how do i make the ansers clickable
 
-  {
+  var questions = [{
     name: "AFC North",   
     options: ["Bengals", "Browns", "Ravens", "Broncos"],
     answer: "Broncos"
+    
   },
   
   {
     name: "NFC South",
-    options: ["Buccaneers", "Panthers", "Jaguars", "Falcons"],
-    answer: "Jaguars",
+    options: ["Buccaneers", "Panthers", "Dolphins", "Falcons"],
+    answer: "dolphins",
   },
   
   {
     name: "NFC East",
     options: ["Eagles", "Giants", "Cowboys", "Redskins"],
     answer: "Redskins"
+  },
+
+  {
+    name: "AFC East",
+    options: ["Patriots","Jaguars", "Jets","Bills"],
+    answer: "Jaguars"
+  },
+
+  {
+    name: "NFC West",
+    options: ["Chargers", "Rams", "49ers", "Cardinals"],
+    answer: "Chargers"
   }
+
  ]
+ console.log (questions)
+ buildquestion()
+
+ 
 // var timerEl = document.getElementById("timer");
 
 // var secondsLeft = 60;
