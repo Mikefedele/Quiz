@@ -1,90 +1,119 @@
-
-var timer
 var landingpage = document.getElementById("landingPage");
-
-var questions = document.querySelector(".questions");
-var button = document.getElementById("button");
-var ques1;
-var ques2;
-var ques3;
-var ques4;
-var ques5;
+var index = 0;
+var questionsEl = document.querySelector(".questions");
+var button = document.getElementById("startButton");
 var questText = document.getElementById("questText");
-
+var currentQuestion = 0;
+var timerEl = document.getElementById("timer");
 // On click start the game change initial display to none bring 1st question up
-// & start timer
-//
-var index = 0
-button.addEventListener("click", function(){
+button.addEventListener("click", function () {
   landingpage.setAttribute("style", "display: none");
+  buildquestion();
+});
 
-})
-//call this to iterate thru questions on click
+
+var time = 5;
+var timerStart = setInterval(function() {
+  if (time > 0) {
+    time--;
+    // button.disabled = true;
+    timerEl.innerHTML = 'Hurry '+time+ ' seconds' ;
+    console.log(time);
+  }
+  if (time < 0) {
+    time = 0;
+    
+  }
+}, 1000);
+
+
+var optionsList = document.getElementById("optionsList");
+
 function buildquestion () {
-  questText.textContent = questions[index].name;
+  questText.textContent = questions[index].conference;
   questions[index].options.forEach(option => {
     console.log(option)
-    //build button with createlement
-
+    var button = document.createElement("button")
+    button.textContent =option;
+    button.setAttribute ("value", option)
+    button.onclick = evaluateAnswer;
+    optionsList.appendChild(button);
 //set attirbute
-//on click
+
 
   });
+}
+function evaluateAnswer(event) {
+if (event.target.value !== questions[index].answer) {
+  console.log("wrong")
+}
+else {
+  console.log("right");
+}
+optionsList.innerHTML = "";
+index++;
+ if (index === questions.length) {
+   console.log("endgame")
+} else {
+  buildquestion()
 }
 
 
 
-  //turns off landing
-  
 
 
-//questions   
 
-
-  //how do i make the ansers clickable
-
-  var questions = [{
-    name: "AFC North",   
-    options: ["Bengals", "Browns", "Ravens", "Broncos"],
-    answer: "Broncos"
-    
-  },
-  
+console.log(questions.length)
+}
+var questions = [
   {
-    name: "NFC South",
+  
+    conference: "AFC North",
+    options: ["Bengals", "Browns", "Ravens", "Broncos"],
+    answer: "Broncos",
+  },
+
+  {
+    
+    conference: "NFC South",
     options: ["Buccaneers", "Panthers", "Dolphins", "Falcons"],
     answer: "dolphins",
   },
-  
+
   {
-    name: "NFC East",
+    conference: "NFC East",
     options: ["Eagles", "Giants", "Cowboys", "Redskins"],
-    answer: "Redskins"
+    answer: "Redskins",
   },
 
   {
-    name: "AFC East",
-    options: ["Patriots","Jaguars", "Jets","Bills"],
-    answer: "Jaguars"
+    
+    conference: "AFC East",
+    options: ["Patriots", "Jaguars", "Jets", "Bills"],
+    answer: "Jaguars",
   },
 
   {
-    name: "NFC West",
+  
+    conference: "NFC West",
     options: ["Chargers", "Rams", "49ers", "Cardinals"],
-    answer: "Chargers"
-  }
+    answer: "Chargers",
+  },
+];
 
- ]
- console.log (questions)
- buildquestion()
 
- 
+console.log(questions[0].options[2]);
+console.log(questions)
+
+//  how do I get the options array to li
+// questText.innerHTML = "test";
+
 // var timerEl = document.getElementById("timer");
 
 // var secondsLeft = 60;
 
 // function setTime() {
-//   // Sets interval in variable
+// //   // Sets interval in variable
 //   var timerInterval = setInterval(function () {
 //     secondsLeft--;
 //     timeEl.textContent = secondsLeft;
@@ -93,13 +122,11 @@ function buildquestion () {
 //       // Stops execution of action at set interval
 //       clearInterval(timerInterval);
 
-
 //     }
 
 //   }, 6000);
 // }
-
-
+// setTime()
 
 // need function to start timer on event listen
 //bring up 1st question listen for click on answer[x]
@@ -107,12 +134,6 @@ function buildquestion () {
 //if wrong -5 secs from timer
 //
 //
-
-
-
-
-
-
 
 // GIVEN I am taking a code quiz
 // WHEN I click the start button
