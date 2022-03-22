@@ -9,22 +9,25 @@ var timerEl = document.getElementById("timer");
 button.addEventListener("click", function () {
   landingpage.setAttribute("style", "display: none");
   buildquestion();
-});
 
 
-var time = 5;
-var timerStart = setInterval(function() {
-  if (time > 0) {
-    time--;
-    // button.disabled = true;
-    timerEl.innerHTML = 'Hurry '+time+ ' seconds' ;
-    console.log(time);
-  }
-  if (time < 0) {
-    time = 0;
-    
-  }
-}, 1000);
+  var time = 5;
+  var timerStart = setInterval(function() {
+    if (time > 0) {
+      time--;
+      // button.disabled = true;
+      timerEl.innerHTML = 'Hurry '+time+ ' seconds' ;
+      console.log(time);
+    }
+    if (time < 0) {
+      time = 0;
+      
+    }
+  }, 1000);
+  
+}
+);
+
 
 
 var optionsList = document.getElementById("optionsList");
