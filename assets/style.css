@@ -1,8 +1,16 @@
 #landingPage {
-  background-color: green;
+  /* background-color: green; */
   justify-content: center;
   height: auto;
+  width: auto;
   text-align: center;
+  
+  margin: auto;
+  font-weight: bold;
+  color: black;
+  background-size: 60%;
+  margin: 0 20px;
+  
 }
 
 #button {
@@ -13,6 +21,9 @@
 #startbtn {
   margin: 1px;
 }
+
+
+
 
 /* #highScores {
   display: none;

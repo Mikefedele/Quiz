@@ -27,12 +27,13 @@ button.addEventListener("click", function () {
       // show timer on screen
       timerEl.innerHTML = 'Hurry '+time+ ' seconds' ;
       console.log(time);
-    }
-    if (time < 0) {
-      time = 0;
+    console.log(index)
+    if (time <= 0 ||(index === questions.length - 1) ) {
+      clearInterval(timerStart);
+      
 
       
-    }
+    }}
   }, 1000);
   
 }
@@ -54,6 +55,10 @@ function buildquestion () {
     optionsList.appendChild(button);
 //set attirbute
 
+  // if  {
+  //   clearInterval(timer);
+  // }
+
 
   });
   var right = "";
@@ -71,22 +76,27 @@ optionsList.innerHTML = "";
 index++;
  if (index === questions.length) {
    console.log("endgame");
-   questText.innerHTML = "Game Over"
+   questions.innerHTML = "Game Over"
 
 } else {
   buildquestion();
 }
 
-if (timer === 0 || questions[index] === 5 ) {
-  document.forms.getElementById("highScores");
+// if (timer === 0 || questions[index] === 5 ) {
+//   document.forms.getElementById("highScores");
+//   {
+//   clearInterval(time);
+
+//   }
+  
 
 }
 
 
 
 
-console.log(questions.length)
-}
+
+
 var questions = [
   {
   
