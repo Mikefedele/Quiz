@@ -1,3 +1,5 @@
+// global variables
+
 var landingpage = document.getElementById("landingPage");
 var index = 0;
 var questionsEl = document.querySelector(".questions");
@@ -5,22 +7,30 @@ var button = document.getElementById("startButton");
 var questText = document.getElementById("questText");
 var currentQuestion = 0;
 var timerEl = document.getElementById("timer");
+var resultsEl = document.getElementById("");
 // On click start the game change initial display to none bring 1st question up
+var highScoresEL = document.getElementById("highScores");
+
+highScoresEL.setAttribute("style", "display:none");
+
+var time = "";
+// On click start the game change. Change the display of the landingpage & start timer.
 button.addEventListener("click", function () {
   landingpage.setAttribute("style", "display: none");
   buildquestion();
 
-
-  var time = 5;
+//start timer, keep in this function so it happens on click
+  var time = 50;
   var timerStart = setInterval(function() {
     if (time > 0) {
       time--;
-      // button.disabled = true;
+      // show timer on screen
       timerEl.innerHTML = 'Hurry '+time+ ' seconds' ;
       console.log(time);
     }
     if (time < 0) {
       time = 0;
+
       
     }
   }, 1000);
@@ -29,9 +39,10 @@ button.addEventListener("click", function () {
 );
 
 
-
+// set in global
 var optionsList = document.getElementById("optionsList");
 
+// index pre set to 0 
 function buildquestion () {
   questText.textContent = questions[index].conference;
   questions[index].options.forEach(option => {
@@ -45,23 +56,31 @@ function buildquestion () {
 
 
   });
+  var right = "";
 }
 function evaluateAnswer(event) {
 if (event.target.value !== questions[index].answer) {
   console.log("wrong")
+  // & - 5 secs on timer
 }
 else {
   console.log("right");
+  
 }
 optionsList.innerHTML = "";
 index++;
  if (index === questions.length) {
-   console.log("endgame")
+   console.log("endgame");
+   questText.innerHTML = "Game Over"
+
 } else {
-  buildquestion()
+  buildquestion();
 }
 
+if (timer === 0 || questions[index] === 5 ) {
+  document.forms.getElementById("highScores");
 
+}
 
 
 
