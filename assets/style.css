@@ -4,24 +4,32 @@
   height: auto;
   width: auto;
   text-align: center;
+  background-image: url(./fbfield.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 700px 200px;
   
   margin: auto;
   font-weight: bold;
+  font-size: 1.5em;
   color: black;
-  background-size: 60%;
+  /* background-size: 60%; */
   margin: 0 20px;
   
 }
 
-#button {
-  width: 90px;
-  height: 30px;
+button {
+  width: 120px;
+  height: 40px;
   margin-bottom: 10px;
 }
 #startbtn {
   margin: 1px;
 }
 
+/* #nameScore {
+  display: none;
+} */
 
 
 

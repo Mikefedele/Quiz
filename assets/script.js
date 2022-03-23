@@ -1,5 +1,5 @@
 // global variables
-
+var rightWrongEl = document.querySelector("rightWrong")
 var landingpage = document.getElementById("landingPage");
 var index = 0;
 var questionsEl = document.querySelector(".questions");
@@ -8,10 +8,10 @@ var questText = document.getElementById("questText");
 var currentQuestion = 0;
 var timerEl = document.getElementById("timer");
 var resultsEl = document.getElementById("");
-// On click start the game change initial display to none bring 1st question up
-var highScoresEL = document.getElementById("highScores");
+// var highScoresEL = document.getElementById("highScores");
+var nameScoreEl = document.getElementById("nameScore");
+// highScoresEL.setAttribute("style", "display:none");
 
-highScoresEL.setAttribute("style", "display:none");
 
 var time = "";
 // On click start the game change. Change the display of the landingpage & start timer.
@@ -26,8 +26,8 @@ button.addEventListener("click", function () {
       time--;
       // show timer on screen
       timerEl.innerHTML = 'Hurry '+time+ ' seconds' ;
-      console.log(time);
-    console.log(index)
+      // console.log(time);
+    // console.log(index)
     if (time <= 0 ||(index === questions.length - 1) ) {
       clearInterval(timerStart);
       
@@ -46,8 +46,7 @@ var optionsList = document.getElementById("optionsList");
 // index pre set to 0 
 function buildquestion () {
   questText.textContent = questions[index].conference;
-  questions[index].options.forEach(option => {
-    console.log(option)
+  questions[index].options.forEach(option => {   
     var button = document.createElement("button")
     button.textContent =option;
     button.setAttribute ("value", option)
@@ -55,32 +54,50 @@ function buildquestion () {
     optionsList.appendChild(button);
 //set attirbute
 
-  // if  {
-  //   clearInterval(timer);
-  // }
+  
 
 
   });
-  var right = "";
+
 }
+
+// event.target is the click, value is a predefined func doesnt equal the questions, 
+//index for which questions answer is the key for that question.
+// var wrongAnswer = 0;
+// var rightAnswer = 0;
 function evaluateAnswer(event) {
 if (event.target.value !== questions[index].answer) {
-  console.log("wrong")
-  // & - 5 secs on timer
+  console.log("wrong");
+  
+
+// wrongAnswer.index = wrongAnswer.index + 1;
+//how log right answers
+  // figure out how to
 }
 else {
   console.log("right");
+  // rightAnswer[index] = rightAnswer[index] + 1;
   
 }
 optionsList.innerHTML = "";
 index++;
  if (index === questions.length) {
    console.log("endgame");
-   questions.innerHTML = "Game Over"
+   questText.innerHTML = "Game Over";
+ }
+   else {
+    buildquestion();
+  }
+     
+   }
 
-} else {
-  buildquestion();
-}
+ 
+ 
+  
+
+
+
+
 
 // if (timer === 0 || questions[index] === 5 ) {
 //   document.forms.getElementById("highScores");
@@ -90,10 +107,10 @@ index++;
 //   }
   
 
-}
 
 
-
+// console.log(rightAnswer)
+// var wrongAns = localStorage.getItem("right");
 
 
 
@@ -134,31 +151,17 @@ var questions = [
 ];
 
 
-console.log(questions[0].options[2]);
-console.log(questions)
+
+
+
+
+//          (objname)[Index].thatKeyName[that array index]          
+// console.log(questions[0].options[2]);
+// 
 
 //  how do I get the options array to li
 // questText.innerHTML = "test";
 
-// var timerEl = document.getElementById("timer");
-
-// var secondsLeft = 60;
-
-// function setTime() {
-// //   // Sets interval in variable
-//   var timerInterval = setInterval(function () {
-//     secondsLeft--;
-//     timeEl.textContent = secondsLeft;
-
-//     if (secondsLeft === 0) {
-//       // Stops execution of action at set interval
-//       clearInterval(timerInterval);
-
-//     }
-
-//   }, 6000);
-// }
-// setTime()
 
 // need function to start timer on event listen
 //bring up 1st question listen for click on answer[x]
