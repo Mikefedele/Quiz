@@ -13,14 +13,14 @@ var nameScoreEl = document.getElementById("nameScore");
 // highScoresEL.setAttribute("style", "display:none");
 
 
-var time = "";
+var time = 50;
 // On click start the game change. Change the display of the landingpage & start timer.
 button.addEventListener("click", function () {
   landingpage.setAttribute("style", "display: none");
   buildquestion();
 
 //start timer, keep in this function so it happens on click
-  var time = 50;
+
   var timerStart = setInterval(function() {
     if (time > 0) {
       time--;
@@ -68,7 +68,7 @@ function buildquestion () {
 function evaluateAnswer(event) {
 if (event.target.value !== questions[index].answer) {
   console.log("wrong");
-  
+  time = time -5;
 
 // wrongAnswer.index = wrongAnswer.index + 1;
 //how log right answers
@@ -77,7 +77,7 @@ if (event.target.value !== questions[index].answer) {
 else {
   console.log("right");
   // rightAnswer[index] = rightAnswer[index] + 1;
-  
+    // time= time -5;
 }
 optionsList.innerHTML = "";
 index++;
