@@ -8,9 +8,12 @@ var questText = document.getElementById("questText");
 var currentQuestion = 0;
 var timerEl = document.getElementById("timer");
 var resultsEl = document.getElementById("");
-// var highScoresEL = document.getElementById("highScores");
 var nameScoreEl = document.getElementById("nameScore");
+var showScoreEl = document.getElementById("showScore");
 // highScoresEL.setAttribute("style", "display:none");
+wrongAnswerArray = [];
+var scoreEl = document.getElementById("score")
+score = 0;
 
 
 var time = 50;
@@ -30,6 +33,7 @@ button.addEventListener("click", function () {
     // console.log(index)
     if (time <= 0 ||(index === questions.length - 1) ) {
       clearInterval(timerStart);
+      landingpage.setAttribute("style", "display: none");
       
 
       
@@ -52,6 +56,7 @@ function buildquestion () {
     button.setAttribute ("value", option)
     button.onclick = evaluateAnswer;
     optionsList.appendChild(button);
+    showScoreEl.textContent = "Score"
 //set attirbute
 
   
@@ -63,22 +68,37 @@ function buildquestion () {
 
 // event.target is the click, value is a predefined func doesnt equal the questions, 
 //index for which questions answer is the key for that question.
-// var wrongAnswer = 0;
-// var rightAnswer = 0;
+
+var wrongAnswer = 0;
+var rightAnswer = 0;
 function evaluateAnswer(event) {
 if (event.target.value !== questions[index].answer) {
   console.log("wrong");
-  time = time -5;
+  time = time -5; 
+    wrongAnswer++;
+    localStorage.setItem("wrongArray", wrongAnswer);
+  }
+// wrongAnswer + 1;
 
 // wrongAnswer.index = wrongAnswer.index + 1;
 //how log right answers
   // figure out how to
-}
+
+
 else {
   console.log("right");
-  // rightAnswer[index] = rightAnswer[index] + 1;
+  rightAnswer++;
+  score++;
+console.log(score);
+scoreEl.textContent = score;
+  // var currentScore = score.value;
+
+
+  localStorage.setItem("rightArray", rightAnswer);
     // time= time -5;
 }
+
+
 optionsList.innerHTML = "";
 index++;
  if (index === questions.length) {
