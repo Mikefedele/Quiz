@@ -12,11 +12,12 @@ var nameScoreEl = document.getElementById("nameScore");
 var showScoreEl = document.getElementById("showScore");
 // highScoresEL.setAttribute("style", "display:none");
 wrongAnswerArray = [];
+var rightEl = document.getElementById("right")
 var scoreEl = document.getElementById("score")
 score = 0;
 
 
-var time = 50;
+var time = 30;
 // On click start the game change. Change the display of the landingpage & start timer.
 button.addEventListener("click", function () {
   landingpage.setAttribute("style", "display: none");
@@ -33,7 +34,7 @@ button.addEventListener("click", function () {
     // console.log(index)
     if (time <= 0 ||(index === questions.length - 1) ) {
       clearInterval(timerStart);
-      landingpage.setAttribute("style", "display: none");
+      // landingpage.setAttribute("style", "display: none");
       
 
       
@@ -101,9 +102,11 @@ scoreEl.textContent = score;
 
 optionsList.innerHTML = "";
 index++;
- if (index === questions.length) {
+
+ if (index === questions.length || time == 0) {
    console.log("endgame");
    questText.innerHTML = "Game Over";
+  
  }
    else {
     buildquestion();
